@@ -1,17 +1,28 @@
 <html>
     <body>
+        
+        <% if(erros){ %>
+        <div>
+            <ul>
+            <% for(var i = 0 ; i < erros.length ; i++){ %>
+                <li><%= erros[i].param + " : " + erros[i].msg %></li>
+            <% } %>
+            </ul>
+        </div>
+        <% } %>
+        
         <form action="/novo/livro" method="post">
             <div>
                 <label for="titulo">Titulo</label>
-                <input type="tex" name="titulo" id="titulo" placeholder="Titulo do livro" />
+                <input type="tex" name="titulo" id="titulo" placeholder="Titulo do livro" value="<%= produto.titulo %>" />
             </div>
             <div>
                 <label for="descricao">Descrição</label>
-                <input type="tex" name="descricao" id="descricao" placeholder="Descrição do livro" />
+                <input type="tex" name="descricao" id="descricao" placeholder="Descrição do livro" value="<%= produto.descricao %>" />
             </div>
             <div>
                 <label for="preco">Preço</label>
-                <input type="tex" name="preco" id="preco" placeholder="Preço do livro" />
+                <input type="tex" name="preco" id="preco" placeholder="Preço do livro" value="<%= produto.preco %>" />
             </div>
             
             <input type="submit" value="Gravar" />
